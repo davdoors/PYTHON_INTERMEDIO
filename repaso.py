@@ -1,9 +1,21 @@
+from random import randint, random
+
+
 def run():
-    list = [num**2 for num in range(101) if num % 3 == 0]
-    dict = {num : num**0.5 for num in range(101) if num % 3 == 0} 
-    print(list)
-    print( "     ")
-    print(dict)
+    rand_list = []
+    for num in range(101):
+        rand_list.append(randint(0,100))
+    even = list(filter(lambda num:num%2==0,rand_list))
+    print(even)
+    #filter(rand_list)
+    #list = [num for num in rand_list if num%2 == 0]
+    #print (list)
+    
+#def filter(list):
+    
+    
+    
+    
 
 if __name__ == '__main__':
     run()
