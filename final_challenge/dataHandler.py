@@ -5,7 +5,7 @@ class dataHandler:
     words_dict = {}
     hidden_word = ""
     hangman_buffer = []
-    user_input_buffer = []
+    input_buffer = []
     last_check = []
 
     def __init__(self):
@@ -28,14 +28,34 @@ class dataHandler:
     def __change_hangman_buffer(self,index,letter):
         self.hangman_buffer[index] = letter
 
-    def __check_user_input(self,input):
+    def __is_in_hidden_word(self,input):
         check={}
+        ans = False
         check = {index:l for index,l in enumerate(self.hidden_word) if l == input}
         if len(check) != 0:
             self.last_check = check
-            #ValueError
+            ans = True
+        
+        return ans
 
-        pass
+    def validate_user_input(self,input):
+        if input.isnumeric():
+            print("Invalid input: numeric values are not allowed")
+            return
+        
+        input.lower()
+        # *check if input waw already entered
+        try:
+            index_check = self.input_buffer.index(input)
+            print("Invalid input: " + input + "has already been entered")
+        except ValueError:
+            self.input_buffer.append(input)
+        
+        if not self.__is_in_hidden_word(input):
+            print("keep trying XD")
+            return
+        
+        # TODO: change_hangman_buffer.
 
 
     def get_hidden_word(self):
