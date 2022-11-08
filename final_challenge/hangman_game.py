@@ -12,8 +12,15 @@ Hints:
     3. use os.system("cls") to clear terminal in Windows.
 """
 from dataHandler import dataHandler
+from UI import Console
 
 data = dataHandler()
+ui = Console()
+
+def run():
+    data.validate_user_input(ui.test())
 
 if __name__ == '__main__':
-    print(data.get_random_word())
+    data.set_hidden_word()
+    while True:
+        run()
