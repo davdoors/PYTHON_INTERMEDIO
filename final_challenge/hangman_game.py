@@ -18,6 +18,7 @@ data = dataHandler()
 ui = Console()
 
 def run():
+    # todo: need to code UI interface. 
     data.validate_user_input(ui.test())
 
 if __name__ == '__main__':

@@ -23,7 +23,7 @@ class dataHandler:
     
     def __reset_hangman_buffer(self):
         self.hangman_buffer =[]
-        for l in self.hidden_word: # todo: remove '\n' from hidden word
+        for l in self.hidden_word:
             self.hangman_buffer.append("_")
     
     def __change_hangman_buffer(self,index,letter):
@@ -66,7 +66,8 @@ class dataHandler:
             return
         print("keep going")
 
-
+    def get_hangman_buffer(self):
+        return self.hangman_buffer
 
     def get_hidden_word(self):
         return self.hidden_word
