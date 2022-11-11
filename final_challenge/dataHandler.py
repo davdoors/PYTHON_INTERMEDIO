@@ -18,14 +18,12 @@ class dataHandler:
         return self.words_dict.get(random.randint(0, len(self.words_dict)))
 
     def set_hidden_word(self):
-        self.hidden_word = self.get_random_word()
+        self.hidden_word = self.get_random_word().replace('\n','')
         self.__reset_hangman_buffer()
     
     def __reset_hangman_buffer(self):
         self.hangman_buffer =[]
         for l in self.hidden_word: # todo: remove '\n' from hidden word
-            if l == '\n':
-                continue
             self.hangman_buffer.append("_")
     
     def __change_hangman_buffer(self,index,letter):
