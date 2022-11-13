@@ -1,4 +1,5 @@
 import random
+import os
 
 
 class dataHandler:
@@ -63,8 +64,10 @@ class dataHandler:
         if self.hangman_buffer == list(self.hidden_word):
             self.__user_win = True
             print("you win")
+            os.system("cls")
             return
         print("keep going")
+        os.system("cls")
 
     def get_hangman_buffer(self):
         return self.hangman_buffer
@@ -74,3 +77,6 @@ class dataHandler:
 
     def get_user_win(self):
         return self.__user_win
+
+    def reset_user_win(self):
+        self.__user_win = False
