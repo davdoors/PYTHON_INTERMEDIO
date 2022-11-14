@@ -23,15 +23,8 @@ def run():
         ans =""
         ui.main_screen()
         os.system("cls")
-        if ui.is_a_winner():
-            ans = input("Want to play again ?? Yes or No")
-        if ans == "yes":
-            ui.restart_game()
-        if ans == "no":
-            ui.stop_playing()
+        ui.play_again()
 
-    # todo: need to code UI interface. 
-    #data.validate_user_input(ui.test())
 
 if __name__ == '__main__':
     #data.set_hidden_word()
