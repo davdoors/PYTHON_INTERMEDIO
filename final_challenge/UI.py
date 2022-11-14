@@ -1,4 +1,5 @@
 from dataHandler import dataHandler
+import os
 class Console:
     hidden_word = ""
     word_buffer = []
@@ -27,12 +28,12 @@ class Console:
         valid_ans = False
         if not self.is_a_winner():
             return
-        while not(valid_ans):
+        while not(ans == "Y" or ans == "N"):
             ans = input("Want to play again ?? [Y]es or [N]o: ").upper()
-            if ans == "Y" or ans == "N":
-                valid_ans = True   
+            os.system("cls")
         if ans == "Y":
-            self.restart_game()
+            os.system("cls")
+            self.restart_game()            
             return        
         self.stop_playing()
 
@@ -40,6 +41,7 @@ class Console:
         self.winner = False
         self.data.reset_user_win()
         self.data.set_hidden_word()
+        print("Let's play again \n")
         self.main_screen()
 
     def is_a_winner(self):
@@ -49,5 +51,6 @@ class Console:
         return self.playing
     
     def stop_playing(self):
+        print("Good By ... \n")
         self.playing = False
 

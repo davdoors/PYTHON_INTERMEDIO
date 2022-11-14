@@ -20,11 +20,9 @@ ui = Console()
 
 def run():
     while ui.game_on():
-        ans =""
         ui.main_screen()
         os.system("cls")
         ui.play_again()
-
 
 if __name__ == '__main__':
     #data.set_hidden_word()
